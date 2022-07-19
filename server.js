@@ -17,13 +17,13 @@ app.use(express.urlencoded({extended: true }));
 
 app.use(express.json());
 
+app.use(express.static('public'));
+
 app.use('/api', apiRoutes);
 
 app.use('/', htmlRoutes);
 
 //make sure files are readily available and not gated behind server endpoints
-
-app.use(express.static('public'));
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}`);
